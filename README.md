@@ -14,7 +14,7 @@ You can chat with your data in Azure AI Search, Azure Blob Storage, URL/web addr
     -   [Setting Up the Sample in Visual Studio Code](#setting-up-the-sample-in-visual-studio-code)
     -   [Testing the sample](#testing-the-sample)
     -   [Provisioning, Deploying, and Publishing your custom Copilot](#provisioning-deploying-and-publishing-your-custom-copilot)
-    -   [How to assign Cognitive Service OpenAI User role to your deployed custom copilot’s App Service resource](how-to-assign-cognitive-service-openai-user-role-to-your-deployed-custom-copilots-app-service-resource)
+    -   [How to assign Cognitive Service OpenAI User role to your deployed custom copilot s App Service resource](how-to-assign-cognitive-service-openai-user-role-to-your-deployed-custom-copilots-app-service-resource)
     -   [Enable your Custom Copilot for Group Chats and Channels](#enable-your-custom-copilot-for-group-chats-and-channels)
     -   [Enable Out of Scope Conversations](#enable-out-of-scope-conversations)
 
