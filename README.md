@@ -10,11 +10,11 @@ You can chat with your data in Azure AI Search, Azure Blob Storage, URL/web addr
 -   [Azure OpenAI On Your Data](#azure-openai-on-your-data)
     -   [Summary](#summary)
     -   [Prerequisites](#prerequisites)
-    -   [Setting up your app in Azure OpenAI Studio](#setting-up-your-app-in-azure-openai-studio)
-    -   [Setting Up the Sample in Visual Studio Code](#setting-up-the-sample-in-visual-studio-code)
-    -   [Testing the sample](#testing-the-sample)
-    -   [Provisioning, Deploying, and Publishing your custom Copilot](#provisioning-deploying-and-publishing-your-custom-copilot)
-    -   [Assigning Cognitive Service OpenAI User role to your deployed App Service resource](#assigning-cognitive-service-openai-user-role-to-your-deployed-app-service-resource)
+    -   [Setting up your custom copilot in Azure OpenAI Studio](#setting-up-your-custom-copilot-in-azure-openai-studio)
+    -   [Setting Up the custom copilot in Visual Studio Code](#setting-up-the-custom-copilot-in-visual-studio-code)
+    	-   [Testing the custom copilot](#testing-the-custom-copilot)
+    -   [Provisioning, Deploying, and Publishing your custom copilot](#provisioning-deploying-and-publishing-your-custom-copilot)
+        -   [Assigning Cognitive Service OpenAI User role to your deployed App Service resource](#assigning-cognitive-service-openai-user-role-to-your-deployed-app-service-resource)
     -   [Enable your Custom Copilot for Group Chats and Channels](#enable-your-custom-copilot-for-group-chats-and-channels)
     -   [Enable Out of Scope Conversations](#enable-out-of-scope-conversations)
 
@@ -42,7 +42,7 @@ This guide will show you have the set up your custom copilot for Teams using Azu
 | [Cognitive Service OpenAI User](https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/role-based-access-control#:~:text=to%20a%20role.-,Cognitive%20Services%20OpenAI%20User,-If%20a%20user) role                                                                              | Your Azure account has been assigned “Cognitive Service OpenAI user” role of the Azure OpenAI resource you are using to allow you to use your account to make Azure OpenAI inference API calls. For more information see  [Assign Azure roles using the Azure portal](https://learn.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal).                                                                                                                                                                                              |
 
 
-### Setting up your app in Azure OpenAI Studio
+### Setting up your custom copilot in Azure OpenAI Studio
 
 1. Follow the [use your data quickstart instructions](https://learn.microsoft.com/en-us/azure/ai-services/openai/use-your-data-quickstart?tabs=command-line%2Cpython-new&pivots=programming-language-studio#add-your-data-using-azure-openai-studio) to add your data using Azure OpenAI Studio chat playground. You can choose your own data or you can select `Upload files` as the data source and upload the `nba.pdf` file in this sample.
 
@@ -55,7 +55,7 @@ This guide will show you have the set up your custom copilot for Teams using Azu
 1. Open the location of where you downloaded the zip file and extract the zip file.
 
 
-### Setting Up the Sample in Visual Studio Code
+### Setting Up the custom copilot in Visual Studio Code
 
 1. Go to Visual Studio Code.
    
@@ -76,7 +76,7 @@ This guide will show you have the set up your custom copilot for Teams using Azu
    ```
 
 
-### Testing the Sample
+### Testing the custom copilot
 Note: Testing this sample requires that you are logged into Azure CLI and you have Cognitive Services OpenAI User role assigned to you per the pre-requisites.
 
 1. If you chose `API key` in data connection, manually copy and paste your Azure AI Search key in `src\prompts\chat\config.json` file. Your **Azure AI Search Key** can be found in Azure OpenAI Studio Playground by clicking the `View code` button and looking under **Azure Search Resource Key**. If you chose `system assigned managed identity`, you can skip this step. Learn more about different data connection options here.
