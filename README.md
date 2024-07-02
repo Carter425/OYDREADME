@@ -1,6 +1,6 @@
 # Azure OpenAI On Your Data
 
-The following is a custom copilot that uses the Azure OpenAI Chat Completions API ‘Azure OpenAI On Your Data’ feature to facilitate RAG (retrieval augmented generation).
+The following is a custom copilot that uses the Azure OpenAI Chat Completions API **Azure OpenAI On Your Data** feature to facilitate RAG (retrieval augmented generation).
 You can chat with your data in Azure AI Search, Azure Blob Storage, URL/web address, Azure Cosmos DB for MongoDB vCore, uploaded files, and Elasticsearch.
 
 <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
@@ -9,8 +9,8 @@ You can chat with your data in Azure AI Search, Azure Blob Storage, URL/web addr
 
 -   [Azure OpenAI On Your Data](#azure-openai-on-your-data)
     -   [Summary](#summary)
-        -   [Example Interaction](#example-interaction)
-    -   [Setting up the sample](#setting-up-the-sample)
+        -   [Prerequisites](#prerequisites)
+    -   [Setting up your app in Azure OpenAI Studio](#setting-up-your-app-in-azure-openai-studio)
     -   [Testing the sample](#testing-the-sample)
         -   [Using Teams Toolkit for Visual Studio Code](#using-teams-toolkit-for-visual-studio-code)
 
@@ -52,14 +52,19 @@ This guide will show you have the set up your custom copilot for Teams using Azu
 
 ### Setting Up the Sample in Visual Studio Code
 
-1.	Go to Visual Studio Code.
+1. Go to Visual Studio Code.
+   
 1. Select File > Open Folder.
+   
 1. Go to the location where you extracted your Teams app folder and select it.
+   
 1. Select View > Terminal. A terminal window opens.
+   
 1. Run the following command to install dependencies:
    ```bash
      yarn install
    ```
+   
 1. Run the following command to build dependencies:
    ```bash
      yarn build
@@ -84,11 +89,13 @@ Note: Testing this sample requires that you are logged into Azure CLI and you ha
 > If you do not have permission to upload custom apps (sideloading), Teams Toolkit will recommend creating and using a Microsoft 365 Developer Program account - a free program to get your own dev environment sandbox that includes Teams.   
 
 ### Provisioning, Deploying, and Publishing your custom Copilot
-After you have tested it locally, you can provision, deploy and publish your Teams app using Teams Toolkit. As this sample uses managed identity, for your custom copilot to generate responses you must assign Cognitive Service OpenAI User role to your custom copilot’s App Service resource group after deploying your app to Azure.
+After you have tested it locally, you can provision, deploy and publish your Teams app using Teams Toolkit. 
 
-1. Provision your app: 
-1. Deploy to Azure: 
-1. Publish to Teams: 
+**IMPORTANT** As this sample uses managed identity, for your custom copilot to generate responses you must assign Cognitive Service OpenAI User role to your custom copilot’s App Service resource group after deploying your app to Azure.
+
+1. [Provision your app](https://learn.microsoft.com/en-us/microsoftteams/platform/toolkit/provision)
+1. [Deploy to Azure](https://learn.microsoft.com/en-us/microsoftteams/platform/toolkit/deploy)
+1. [Publish to Teams](https://learn.microsoft.com/en-us/microsoftteams/platform/toolkit/publish)
 
 ### How to assign Cognitive Service OpenAI User role to your deployed custom copilot’s App Service resource using system assigned managed identity
 As this sample uses managed identity, you must enable assign Cognitive Service OpenAI User role to your custom copilot’s App Service resource group after deploying your app to Azure in order for your deployed custom copilot to receive responses from Azure OpenAI.
@@ -134,9 +141,9 @@ To enable group chats:
 #### Enable Out of Scope Conversations
 
 You can modify the settings in the **Data parameters** section in src\prompts\chat\config.json file. 
-The **in_scope** parameter configures the chatbot's approach to handling queries unrelated to the data source or when search documents are insufficient for a complete answer. When this setting is set to **false**, the model supplements its responses with its own knowledge in addition to your documents. 
+The **in_scope** parameter configures the chatbot's approach to handling queries unrelated to the data source or when search documents are insufficient for a complete answer. When this setting is set to `false`, the model supplements its responses with its own knowledge in addition to your documents. 
 
-By default, the **in_scope** parameter is set to **true** resulting in the model attempting to only rely on your documents for responses. Out of scope questions may receive the following response:
+By default, the **in_scope** parameter is set to `true` resulting in the model attempting to only rely on your documents for responses. Out of scope questions may receive the following response:
 
 “The requested information is not available in the retrieved data. Please try another query or topic.”
 
