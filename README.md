@@ -44,7 +44,7 @@ This guide will show you have the set up your custom copilot for Teams using Azu
 
 ### Setting up your app in Azure OpenAI Studio
 
-1. Follow the [use your data quickstart instructions](https://learn.microsoft.com/en-us/azure/ai-services/openai/use-your-data-quickstart?tabs=command-line%2Cpython-new&pivots=programming-language-studio#add-your-data-using-azure-openai-studio) to add your data using Azure OpenAI Studio chat playground.
+1. Follow the [use your data quickstart instructions](https://learn.microsoft.com/en-us/azure/ai-services/openai/use-your-data-quickstart?tabs=command-line%2Cpython-new&pivots=programming-language-studio#add-your-data-using-azure-openai-studio) to add your data using Azure OpenAI Studio chat playground. You can choose your own data or you can select `Upload files` as the data source and upload the `nba.pdf` file in this sample.
 
 1. After adding your data, click **Deploy to** and then **A new Teams app(preview)**.
 
