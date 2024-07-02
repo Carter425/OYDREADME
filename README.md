@@ -11,6 +11,7 @@ You can chat with your data in Azure AI Search, Azure Blob Storage, URL/web addr
     -   [Summary](#summary)
     -   [Prerequisites](#prerequisites)
     -   [Setting up your app in Azure OpenAI Studio](#setting-up-your-app-in-azure-openai-studio)
+    -   [Setting Up the Sample in Visual Studio Code](#setting-up-the-sample-in-visual-studio-code)
     -   [Testing the sample](#testing-the-sample)
     -   [Provisioning, Deploying, and Publishing your custom Copilot](#provisioning-deploying-and-publishing-your-custom-copilot)
     -   [How to assign Cognitive Service OpenAI User role to your deployed custom copilot’s App Service resource](how-to-assign-cognitive-service-openai-user-role-to-your-deployed-custom-copilot’s-app-service-resource)
@@ -53,6 +54,7 @@ This guide will show you have the set up your custom copilot for Teams using Azu
 
 1. Open the location of where you downloaded the zip file and extract the zip file.
 
+
 ### Setting Up the Sample in Visual Studio Code
 
 1. Go to Visual Studio Code.
@@ -73,23 +75,30 @@ This guide will show you have the set up your custom copilot for Teams using Azu
      yarn build
    ```
 
+
 ### Testing the Sample
 Note: Testing this sample requires that you are logged into Azure CLI and you have Cognitive Services OpenAI User role assigned to you per the pre-requisites.
 
-1. If you chose **API key** in data connection, manually copy and paste your Azure AI Search key in `src\prompts\chat\config.json` file. Your **Azure AI Search Key** can be found in Azure OpenAI Studio Playground by clicking the **View code** button and looking under **Azure Search Resource Key**. If you chose **system assigned managed identity**, you can skip this step. Learn more about different data connection options here. 
+1. If you chose **API key** in data connection, manually copy and paste your Azure AI Search key in `src\prompts\chat\config.json` file. Your **Azure AI Search Key** can be found in Azure OpenAI Studio Playground by clicking the **View code** button and looking under **Azure Search Resource Key**. If you chose **system assigned managed identity**, you can skip this step. Learn more about different data connection options here.
+   
 1. Open the Visual Studio terminal and log into Azure CLI selecting the Azure account that you assigned Cognitive Service OpenAI User role to. This is required because this sample uses managed identity. Use the following command to log in:
    ```bash
      az login
    ```
 1. From the left pane, select Teams Toolkit extension.
+   
 1. Under ACCOUNTS, sign-in to the following:
    - Microsoft 365 account where you have permissions to upload custom apps
    - Azure account
-1. Select Debug in Teams (Edge) or Debug in Teams (Chrome) from the RUN AND DEBUG ▷ dropdown. IMPORTANT: “Debug in Test Tool” does not work with this feature at this time. 
+     
+1. Select Debug in Teams (Edge) or Debug in Teams (Chrome) from the RUN AND DEBUG ▷ dropdown. IMPORTANT: “Debug in Test Tool” does not work with this feature at this time.
+   
 1. Select Run > Start Debugging (F5).
+   
 1. A browser tab opens a Teams web client requesting to add the bot to your tenant. Select Add to begin a chat with your custom copilot
 
 > If you do not have permission to upload custom apps (sideloading), Teams Toolkit will recommend creating and using a Microsoft 365 Developer Program account - a free program to get your own dev environment sandbox that includes Teams.   
+
 
 ### Provisioning, Deploying, and Publishing your custom Copilot
 After you have tested it locally, you can provision, deploy and publish your Teams app using Teams Toolkit. 
@@ -100,25 +109,38 @@ After you have tested it locally, you can provision, deploy and publish your Tea
 1. [Deploy to Azure](https://learn.microsoft.com/en-us/microsoftteams/platform/toolkit/deploy)
 1. [Publish to Teams](https://learn.microsoft.com/en-us/microsoftteams/platform/toolkit/publish)
 
+
 ### How to assign Cognitive Service OpenAI User role to your deployed custom copilot’s App Service resource
 As this sample uses managed identity, you must enable assign Cognitive Service OpenAI User role to your custom copilot’s App Service resource group after deploying your app to Azure in order for your deployed custom copilot to receive responses from Azure OpenAI.
 
 1. Go to Azure portal and select resource groups
+   
 1. Select the resource group you deployed your custom copilot to
+   
 1. Select the “App Service” resource
+   
 1. Go to settings > identity and enable system assigned identity by selecting “On”
+   
 1. Select “Save” to enable system assigned identity.
-1. Click “Azure role assignments” 
-1. Click “add role assignments”. 
+   
+1. Click “Azure role assignments”
+   
+1. Click “add role assignments”.
+
 1. Under Scope select “Resource group”
+   
 1. Under Subscription select the Azure subscription of your Azure OpenAI resource
+   
 1. Under Resource group select your Azure OpenAI resource
+   
 1. Under Role select “Cognitive Service OpenAI user”
+   
 1. Select save to finish assigning the role
 
 Now, your published custom copilot Teams app is ready for use.
 
-#### Enable your Custom Copilot for Group Chats and Channels
+
+### Enable your Custom Copilot for Group Chats and Channels
 
 This custom copilot sample is pre-configured for only personal chats (1 on 1) during preview due to ongoing testing from Azure OpenAI On Your Data to determine the effects of group chats on AI response quality. Group chats can be enabled with the understanding that the AI response quality has not been fully tested for these scenarios. 
 
@@ -127,6 +149,7 @@ A custom copilot can be mentioned ("@customcopilotname") in a channel if it has 
 To enable group chats:
 
 1. Go to appPackage\manifest.json file
+   
 1. Add the **team** and **groupchat** parameters to your bots' scopes in additional to the existing **personal** scope.
    ```bash
     "bots": [
@@ -139,7 +162,9 @@ To enable group chats:
 	            ],
 
    ```
-#### Enable Out of Scope Conversations
+
+   
+### Enable Out of Scope Conversations
 
 You can modify the settings in the **Data parameters** section in src\prompts\chat\config.json file. 
 The **in_scope** parameter configures the chatbot's approach to handling queries unrelated to the data source or when search documents are insufficient for a complete answer. When this setting is set to `false`, the model supplements its responses with its own knowledge in addition to your documents. 
