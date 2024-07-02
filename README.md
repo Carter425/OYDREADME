@@ -21,7 +21,7 @@ You can chat with your data in Azure AI Search, Azure Blob Storage, URL/web addr
 <!-- /code_chunk_output -->
 
 ## Summary
-You can deploy to a standalone Teams app (preview) directly from Azure OpenAI Studio, enabling you to bring conversational experience to your users in Teams to improve operational efficiency and democratize access of information. This Teams app is configured to users within a single tenant and personal chat (non-group chat) scenarios. See the pro-tip section to enable group chat scenarios noting that the AI response quality from Azure OpenAI On Your Data has not been fully tested for group chats. 
+You can deploy to a standalone Teams app (preview) directly from Azure OpenAI Studio, enabling you to bring conversational experience to your users in Teams to improve operational efficiency and democratize access of information. This Teams app is configured to users within a single tenant and personal chat (non-group chat) scenarios. See the [Enable your Custom Copilot for Group Chats and Channels](#enable-your-custom-copilot-for-group-chats-and-channels) section to enable group chat scenarios noting that the AI response quality from Azure OpenAI On Your Data has not been fully tested for group chats. 
 
 This guide will show you have the set up your custom copilot for Teams using Azure OpenAI Studio and Teams Toolkit.
 
