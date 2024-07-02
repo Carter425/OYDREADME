@@ -110,7 +110,7 @@ After you have tested it locally, you can provision, deploy and publish your Tea
 1. [Publish to Teams](https://learn.microsoft.com/en-us/microsoftteams/platform/toolkit/publish)
 
 
-### How to assign Cognitive Service OpenAI User role to your deployed custom copilot’s App Service resource
+### How to assign Cognitive Service OpenAI User role to your deployed custom copilot s App Service resource
 As this sample uses managed identity, you must enable assign Cognitive Service OpenAI User role to your custom copilot’s App Service resource group after deploying your app to Azure in order for your deployed custom copilot to receive responses from Azure OpenAI.
 
 1. Go to Azure portal and select resource groups
