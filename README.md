@@ -38,7 +38,6 @@ This guide will show you have the set up your custom copilot for Teams using Azu
 | [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)                  | The Azure Command-Line Interface (CLI) is a cross-platform command-line tool to connect to Azure and execute administrative commands on Azure resources. For more information on setting up environment variables, see the [Azure SDK documentation](https://github.com/Azure/azure-sdk-for-go/wiki/Set-up-Your-Environment-for-Authentication). |
 | [Cognitive Service OpenAI User](https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/role-based-access-control#:~:text=to%20a%20role.-,Cognitive%20Services%20OpenAI%20User,-If%20a%20user) Role                                                                              | Your Azure account has been assigned “Cognitive Service OpenAI user” role of the Azure OpenAI resource you are using to allow you to use your account to make Azure OpenAI inference API calls. For more information see  [Assign Azure roles using the Azure portal](https://learn.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal).                                                                                                                                                                                              |
 
-
 ### Setting up your custom copilot in Azure OpenAI Studio
 
 1. Follow the [use your data quickstart instructions](https://learn.microsoft.com/en-us/azure/ai-services/openai/use-your-data-quickstart?tabs=command-line%2Cpython-new&pivots=programming-language-studio#add-your-data-using-azure-openai-studio) to add your data using Azure OpenAI Studio chat playground. You can choose your own data or you can select `Upload files` as the data source and upload the `nba.pdf` file in this sample.
@@ -70,8 +69,8 @@ Note: Testing this sample requires that you are logged into Azure CLI and you ha
    ```
 1. From the left pane, select Teams Toolkit extension.
    
-1. Under ACCOUNTS, sign-in to the following:
-   - Microsoft 365 account where you have permissions to upload custom apps
+1. Under ACCOUNTS, sign in to the following:
+   - Microsoft 365 account with permissions to upload custom apps
      
 1. To debug your app, press the `F5` key or from the left pane, select `RUN AND DEBUG ▷` (Ctrl+Shift+D) and then select `Debug in (Edge)` from the dropdown list.  Select `Run > Start Debugging` (F5). IMPORTANT: `Debug in Test Tool` does not work with this feature at this time.
 
@@ -141,7 +140,6 @@ To enable group chats:
 	            ],
 
    ```
-
    
 ### Enable Out of Scope Conversations
 
@@ -152,4 +150,4 @@ By default, the **in_scope** parameter is set to `true` resulting in the model a
 
 “The requested information is not available in the retrieved data. Please try another query or topic.”
 
-For more information please see [Runtime parameters](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/use-your-data?tabs=ai-search#:~:text=more%20contextual%20information.-,Runtime%20parameters,-You%20can%20modify)
+For more information please see [Runtime parameters](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/use-your-data?tabs=ai-search#runtime-parameters)
