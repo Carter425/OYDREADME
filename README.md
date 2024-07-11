@@ -17,7 +17,7 @@ You can chat with your data in Azure AI Search, Azure Blob Storage, URL/web addr
     -	[Supplementary Details and Tips](#supplementary-details-and-tips)
     	-   [Enable your Custom Copilot for Group Chats and Channels](#enable-your-custom-copilot-for-group-chats-and-channels)
     	-   [Enable Out of Scope Conversations](#enable-out-of-scope-conversations)
-    	-   [Assigning Cognitive Service OpenAI user role of your Azure OpenAI resource to your account for local testing](#assigning-cognitive-service-openai-user-role-of-your-azure-openai-resource-to-your-account-for-local-testing)
+    	-   [Assigning Cognitive Service OpenAI user role to your account for local testing](#assigning-cognitive-service-openai-user-role-to-your-account-for-local-testing)
 
 <!-- /code_chunk_output -->
 
@@ -153,7 +153,7 @@ By default, the **in_scope** parameter is set to `true` resulting in the model a
 
 For more information please see [Runtime parameters](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/use-your-data?tabs=ai-search#runtime-parameters)
 
-### Assigning Cognitive Service OpenAI user role of your Azure OpenAI resource to your account for local testing
+### Assigning Cognitive Service OpenAI user role to your account for local testing
 
 Testing this sample requires that you are logged into Azure CLI and you have Cognitive Services OpenAI User role assigned to you per the prerequisites. Detailed instructions are below on how to assign the “Cognitive Service OpenAI user” role to your account.
 
