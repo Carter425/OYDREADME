@@ -17,6 +17,7 @@ You can chat with your data in Azure AI Search, Azure Blob Storage, URL/web addr
     -	[Supplementary Details and Tips](#supplementary-details-and-tips)
     	-   [Enable your Custom Copilot for Group Chats and Channels](#enable-your-custom-copilot-for-group-chats-and-channels)
     	-   [Enable Out of Scope Conversations](#enable-out-of-scope-conversations)
+    	-   [Assigning Cognitive Service OpenAI user role of your Azure OpenAI resource to your account for local testing](#assigning-cognitive-service-openai-user-role-of-your-azure-openai-resource-to-your-account-for-local-testing)
 
 <!-- /code_chunk_output -->
 
@@ -40,7 +41,7 @@ This guide will show you have the set up your custom copilot for Teams using Azu
 
 ### Setting up your custom copilot in Azure OpenAI Studio
 
-1. Follow the [use your data quickstart instructions](https://learn.microsoft.com/en-us/azure/ai-services/openai/use-your-data-quickstart?tabs=command-line%2Cpython-new&pivots=programming-language-studio#add-your-data-using-azure-openai-studio) to add your data using Azure OpenAI Studio chat playground. You can choose your own data or you can select `Upload files` as the data source and upload the `nba.pdf` file in this sample.
+1. Follow the [use your data quickstart instructions](https://learn.microsoft.com/en-us/azure/ai-services/openai/use-your-data-quickstart?tabs=command-line%2Cpython-new&pivots=programming-language-studio#add-your-data-using-azure-openai-studio) to add your data using Azure OpenAI Studio chat playground.
 
 1. After adding your data, click `Deploy to` and then `A new Teams app(preview)`.
 
@@ -90,7 +91,7 @@ After you have tested it locally, you can provision, deploy and publish your Tea
 ### Assigning Cognitive Service OpenAI User role to your deployed App Service resource
 As this sample uses managed identity, you must enable assign Cognitive Service OpenAI User role to your custom copilot’s App Service resource group after deploying your app to Azure in order for your deployed custom copilot to receive responses from Azure OpenAI.
 
-1. Go to Azure portal and select resource groups
+1. Go to [Azure portal](https://portal.azure.com) and select resource groups
    
 1. Select the resource group you deployed your custom copilot to
    
@@ -151,3 +152,24 @@ By default, the **in_scope** parameter is set to `true` resulting in the model a
 “The requested information is not available in the retrieved data. Please try another query or topic.”
 
 For more information please see [Runtime parameters](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/use-your-data?tabs=ai-search#runtime-parameters)
+
+### Assigning Cognitive Service OpenAI user role of your Azure OpenAI resource to your account for local testing
+
+Testing this sample requires that you are logged into Azure CLI and you have Cognitive Services OpenAI User role assigned to you per the prerequisites. Detailed instructions are below on how to assign the “Cognitive Service OpenAI user” role to your account.
+
+To assign yourself the Cognitive Services OpenAI User role in Azure, follow these steps:
+
+1. **Sign in to the [Azure portal](https://portal.azure.com):** Go to the Azure portal and sign into your Azure account.
+1. **Navigate to Subscriptions:** Navigate to `Subscriptions`. If you don't see it, you can search for `Subscriptions` in the search bar at the top of the portal.
+1. **Select Your Subscription:** Click on the subscription you want to assign the role to.
+1. **Access IAM (Identity and Access Management):** In the subscription menu, select `Access control (IAM)`.
+1. **Add Role Assignment:** Click the `+ Add` button and then select `Add role assignment`.
+1. **Choose Role:** In the `Role` dropdown, search for and select `Cognitive Services OpenAI User` and click `Next`
+1. **Assign to User:** In the `Assign access to` dropdown, select `User, group, or service principal`
+1. **Select Your Account:** Click `+ Select members` , search for your account name or email and select it.
+1. **Review and Assign:** Click `Review + assign` to complete the role assignment.
+1. **Wait for Role Assignment to Propagate:** It can take up to 5 minutes for the changes to take effect.
+
+See [Cognitive Service OpenAI User](https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/role-based-access-control) and [Assign Azure roles using the Azure portal](https://learn.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) for additional details.
+
+
