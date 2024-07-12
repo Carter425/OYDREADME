@@ -17,7 +17,6 @@ You can chat with your data in Azure AI Search, Azure Blob Storage, URL/web addr
     -	[Supplementary Details and Tips](#supplementary-details-and-tips)
     	-   [Enable your Custom Copilot for Group Chats and Channels](#enable-your-custom-copilot-for-group-chats-and-channels)
     	-   [Enable Out of Scope Conversations](#enable-out-of-scope-conversations)
-    	-   [Assigning Cognitive Service OpenAI user role to your account for local testing](#assigning-cognitive-service-openai-user-role-to-your-account-for-local-testing)
 
 <!-- /code_chunk_output -->
 
@@ -34,10 +33,9 @@ This guide will show you have the set up your custom copilot for Teams using Azu
 | [Teams Toolkit](https://marketplace.visualstudio.com/items?itemName=TeamsDevApp.ms-teams-vscode-extension) (5.3.x or greater) | Microsoft Visual Studio Code extension that creates a project scaffolding for your app. Use the latest version.                                                                                                                                                     |
 | [Node.js](https://nodejs.org/en) (16 or 18)                                                                                   | Back-end JavaScript runtime environment. Recommended to use Node Version 16.x or 18.x, Node version >=19 is not supported. For more information, see [Node.js version compatibility table for project type](https://learn.microsoft.com/en-us/microsoftteams/platform/toolkit/build-environments#nodejs-version-compatibility-table-for-project-type)                                                                                                                                          |
 | [Microsoft Teams](https://www.microsoft.com/microsoft-teams/download-app)                                                     | Access to a Microsoft Teams account with the appropriate permissions to install an app, [enable custom Teams apps, and turn on custom app uploading.](https://learn.microsoft.com/en-us/microsoftteams/platform/concepts/build-and-test/prepare-your-o365-tenant#enable-custom-teams-apps-and-turn-on-custom-app-uploading)                                                                                                                                             |
-| [Microsoft&nbsp;Edge](https://www.microsoft.com/edge) (recommended) or [Google Chrome](https://www.google.com/chrome/)        | A browser with developer tools.                                                                                                                                                                                                                                |                                                                                                                                                                              
 | [Azure OpenAI](https://oai.azure.com/portal)                                                                                  | Deploy Azure OpenAI large language models and test your custom copilot ideas in the Azure OpenAI Studio Playground. If you want to host your app or access resources in Microsoft Azure, you must create an Azure OpenAI service.                                                                                                                                                                                                                                 |
 | [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)                  | The Azure Command-Line Interface (CLI) is a cross-platform command-line tool to connect to Azure and execute administrative commands on Azure resources. For more information on setting up environment variables, see the [Azure SDK documentation](https://github.com/Azure/azure-sdk-for-go/wiki/Set-up-Your-Environment-for-Authentication). |
-| [Cognitive Service OpenAI User](https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/role-based-access-control#:~:text=to%20a%20role.-,Cognitive%20Services%20OpenAI%20User,-If%20a%20user) Role                                                                              | Your Azure account has been assigned “Cognitive Service OpenAI user” role of the Azure OpenAI resource you are using to allow you to use your account to make Azure OpenAI inference API calls. For more information see  [Assign Azure roles using the Azure portal](https://learn.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) or see the Supplementary Details and Tips section at the end of this README.                                                                                                                                                                                              |
+| [Cognitive Services OpenAI User](https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/role-based-access-control#:~:text=to%20a%20role.-,Cognitive%20Services%20OpenAI%20User,-If%20a%20user) Role                                                                              | Your Azure account has been assigned “Cognitive Services OpenAI user” or “Cognitive Services OpenAI Contributor” role of the Azure OpenAI resource you are using allowing your account to make Azure OpenAI API calls. For more information see [Using your data with Azure OpenAI securely](https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/use-your-data-securely#using-the-api) and [Add role assignment to an Azure OpenAI resource](https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/role-based-access-control#add-role-assignment-to-an-azure-openai-resource) for instructions on setting this role in the Azure portal.                                                                                                                                                                                              |
 
 ### Setting up your custom copilot in Azure OpenAI Studio
 
@@ -54,7 +52,7 @@ This guide will show you have the set up your custom copilot for Teams using Azu
 
 ### Setting up and testing your custom copilot in Visual Studio Code
 
-Note: Testing this sample requires that you are logged into Azure CLI and you have Cognitive Services OpenAI User role assigned to you per the pre-requisites.
+Note: Testing this sample requires that you are logged into Azure CLI and you have [Cognitive Services OpenAI User role assigned to you](https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/role-based-access-control#add-role-assignment-to-an-azure-openai-resource) per the prerequisites.
 
 1. Go to Visual Studio Code.
    
@@ -68,19 +66,11 @@ Note: Testing this sample requires that you are logged into Azure CLI and you ha
    ```bash
      az login
    ```
-1. From the left pane, select Teams Toolkit extension.
-   
-1. Under ACCOUNTS, sign in to the following:
-   - Microsoft 365 account with permissions to upload custom apps
-     
-1. To debug your app, press the `F5` key or from the left pane, select `RUN AND DEBUG ▷` (Ctrl+Shift+D) and then select `Debug in (Edge)` from the dropdown list.  Select `Run > Start Debugging` (F5). IMPORTANT: `Debug in Test Tool` does not work with this feature at this time.
-
-1. A browser tab opens a Teams web client requesting to add the bot to your tenant. Select Add to begin a chat with your custom copilot
-
-> If you do not have permission to upload custom apps (sideloading), Teams Toolkit will recommend creating and using a Microsoft 365 Developer Program account - a free program to get your own dev environment sandbox that includes Teams.   
+ 
+1. To debug your app, press the `F5` key or from the left pane, select `RUN AND DEBUG ▷` (Ctrl+Shift+D) and then select `Debug in (Test tool)` from the dropdown list.  Select `Run > Start Debugging` (F5). The Test Tool opens in a webpage where you can chat with your custom copilot. 
 
 ### Provisioning, Deploying, and Publishing your custom Copilot
-After you have tested it locally, you can provision, deploy and publish your Teams app using Teams Toolkit. 
+After you've tested your copilot, you can provision, deploy, and publish your Teams app by selecting the Teams Toolkit Extension on the left pane in Visual Studio. Run the separate provision, deploy, and publish stages in Lifecycle section. You may be asked to sign into your Microsoft 365 account where you have permissions to upload custom apps and your Azure Account.
 
 **IMPORTANT** As this sample uses managed identity, for your custom copilot to generate responses you must assign Cognitive Service OpenAI User role to your custom copilot’s App Service resource group after deploying your app to Azure.
 
@@ -153,23 +143,5 @@ By default, the **in_scope** parameter is set to `true` resulting in the model a
 
 For more information please see [Runtime parameters](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/use-your-data?tabs=ai-search#runtime-parameters)
 
-### Assigning Cognitive Service OpenAI user role to your account for local testing
-
-Testing this sample requires that you are logged into Azure CLI and you have Cognitive Services OpenAI User role assigned to you per the prerequisites. Detailed instructions are below on how to assign the “Cognitive Service OpenAI user” role to your account.
-
-To assign yourself the Cognitive Services OpenAI User role in Azure, follow these steps:
-
-1. **Sign in to the [Azure portal](https://portal.azure.com):** Go to the Azure portal and sign into your Azure account.
-1. **Navigate to Subscriptions:** Navigate to `Subscriptions`. If you don't see it, you can search for `Subscriptions` in the search bar at the top of the portal.
-1. **Select Your Subscription:** Click on the subscription you want to assign the role to.
-1. **Access IAM (Identity and Access Management):** In the subscription menu, select `Access control (IAM)`.
-1. **Add Role Assignment:** Click the `+ Add` button and then select `Add role assignment`.
-1. **Choose Role:** In the `Role` dropdown, search for and select `Cognitive Services OpenAI User` and click `Next`
-1. **Assign to User:** In the `Assign access to` dropdown, select `User, group, or service principal`
-1. **Select Your Account:** Click `+ Select members` , search for your account name or email and select it.
-1. **Review and Assign:** Click `Review + assign` to complete the role assignment.
-1. **Wait for Role Assignment to Propagate:** It can take up to 5 minutes for the changes to take effect.
-
-See [Cognitive Service OpenAI User](https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/role-based-access-control) and [Assign Azure roles using the Azure portal](https://learn.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) for additional details.
 
 
