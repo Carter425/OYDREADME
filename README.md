@@ -17,6 +17,7 @@ You can chat with your data in Azure AI Search, Azure Blob Storage, URL/web addr
     -	[Supplementary Details and Tips](#supplementary-details-and-tips)
         -   [Enable your Custom Copilot for Group Chats and Channels](#enable-your-custom-copilot-for-group-chats-and-channels)
         -   [Enable Out of Scope Conversations](#enable-out-of-scope-conversations)
+    -   [Privacy](#privacy)
 
 <!-- /code_chunk_output -->
 
@@ -142,6 +143,10 @@ By default, the **in_scope** parameter is set to `true` resulting in the model a
 “The requested information is not available in the retrieved data. Please try another query or topic.”
 
 For more information please see [Runtime parameters](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/use-your-data?tabs=ai-search#runtime-parameters)
+
+## Privacy
+
+Privacy policy: [www.example4.com](https://www.example4.com)
 
 
 
